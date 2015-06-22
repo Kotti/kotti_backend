@@ -23,7 +23,7 @@ install_requires = [
 setup(
     name='kotti_backend',
     version=version,
-    description="Add on for Kotti",
+    description="Turns Kotti CMS into a private content administration area",
     long_description='\n\n'.join([README, CHANGES]),
     classifiers=[
         "Programming Language :: Python",
