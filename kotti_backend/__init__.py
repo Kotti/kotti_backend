@@ -29,4 +29,11 @@ def includeme(config):
     :type config: :class:`pyramid.config.Configurator`
     """
 
-    pass
+    # Set the default permission to view
+    # Set a default permission.
+    # If you want to bypass the default permission for certain views,
+    # you can decorate them with a special permission
+    # (``NO_PERMISSION_REQUIRED`` from ``pyramid.security`` which indicates
+    # that the view should always be executable by entirely anonymous users,
+    # regardless of the default permission.
+    config.set_default_permission('view')
