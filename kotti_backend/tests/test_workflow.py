@@ -16,3 +16,11 @@ class TestFileImageWorkflow:
                            name=u'content',
                            title=u'content')
         assert IDefaultWorkflow.providedBy(instance)
+
+    def test_private_workflow(self, app, root):
+        from kotti.resources import Document
+        doc = root['doc'] = Document()
+        from kotti import DBSession
+        DBSession.flush()
+        DBSession.refresh(doc)
+        assert doc.state == u'private'
