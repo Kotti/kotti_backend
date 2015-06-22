@@ -47,9 +47,6 @@ setup(
     tests_require=[],
     dependency_links=[],
     entry_points={
-        'fanstatic.libraries': [
-            'kotti_backend = kotti_backend.fanstatic:library',
-        ],
     },
     extras_require={},
 )
