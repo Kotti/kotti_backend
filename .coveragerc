@@ -1,0 +1,2 @@
+[run]
+omit = kotti_backend/tests/*
