@@ -5,6 +5,7 @@
 *.py[cod]
 *.so
 *.spec
+*.swp
 .cache
 .coverage
 .installed.cfg
@@ -29,3 +30,6 @@ pip-log.txt
 sdist/
 target/
 var/
+bin/
+include/
+pip-selfcheck.json
