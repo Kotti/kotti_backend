@@ -2,6 +2,7 @@ kotti_backend
 *************
 
 This plugin turns Kotti CMS into a private content administration area.
+Basically ``kotti_backend`` let you achieve the same goals described here (`Kotti CMS intranet`_).
 
 What ``kotti_backend`` does:
 
@@ -10,13 +11,12 @@ What ``kotti_backend`` does:
    (be extremely **careful** because all your published contents will be converted to the
    private state)
 
-2. apply the above workflow to File and Image (they are workflowless by default)
+2. apply the above workflow to ``File`` and ``Image`` (they are workflowless by default)
 
 3. set a default fallback permission to all views
 
 4. override the default populator with a custom ACL (no allow view for everyone)
 
-The kotti_backend plugin let you achieve the same goals described here (`Kotti CMS intranet`_).
 
 |build status|_
 
