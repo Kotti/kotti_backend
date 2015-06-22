@@ -23,6 +23,7 @@ def kotti_configure(settings):
     """
 
     settings['pyramid.includes'] += ' kotti_backend'
+    settings['kotti.populators'] = 'kotti_backend.populate.populator'
 
 
 def includeme(config):
