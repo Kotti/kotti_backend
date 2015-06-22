@@ -18,7 +18,7 @@ What ``kotti_backend`` does:
 
 The kotti_backend plugin let you achieve the same goals described here::
 
-* http://davidemoro.blogspot.it/2015/02/kotti-cms-intranet.html
+* `Kotti CMS intranet`_
 
 |build status|_
 
@@ -29,6 +29,7 @@ Development happens at https://github.com/Kotti/kotti_backend
 .. |build status| image:: https://secure.travis-ci.org/Kotti/kotti_backend.png?branch=master
 .. _build status: http://travis-ci.org/Kotti/kotti_backend
 .. _Find out more about Kotti: http://pypi.python.org/pypi/Kotti
+.. _Kotti CMS intranet: http://davidemoro.blogspot.it/2015/02/kotti-cms-intranet.html
 
 Setup
 =====
