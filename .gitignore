@@ -33,3 +33,4 @@ var/
 bin/
 include/
 pip-selfcheck.json
+kotti_backend.db
