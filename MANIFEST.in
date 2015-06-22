@@ -1,0 +1,3 @@
+recursive-include kotti_backend/tests *
+recursive-include kotti_backend *.zcml
+include *.rst
