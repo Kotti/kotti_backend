@@ -4,6 +4,10 @@
 Created on 2015-06-22
 :author: Davide Moro (davide.moro@gmail.com)
 """
+from zope.interface import implementer
+from kotti.interfaces import IDefaultWorkflow
+from kotti.resources import File
+from kotti.resources import Image
 
 
 def kotti_configure(settings):
@@ -29,7 +33,6 @@ def includeme(config):
     :type config: :class:`pyramid.config.Configurator`
     """
 
-    # Set the default permission to view
     # Set a default permission.
     # If you want to bypass the default permission for certain views,
     # you can decorate them with a special permission
@@ -37,3 +40,7 @@ def includeme(config):
     # that the view should always be executable by entirely anonymous users,
     # regardless of the default permission.
     config.set_default_permission('view')
+
+    # Assign the default workflow for files and images
+    implementer(IDefaultWorkflow)(Image)
+    implementer(IDefaultWorkflow)(File)
