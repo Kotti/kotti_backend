@@ -37,7 +37,7 @@ setup(
     ],
     author='Kotti developers',
     author_email='kotti@googlegroups.com',
-    url='https://github.com/davidemoro/kotti_backend',
+    url='https://github.com/Kotti/kotti_backend',
     keywords='kotti web cms wcms pylons pyramid sqlalchemy bootstrap',
     license="BSD-derived (http://www.repoze.org/LICENSE.txt)",
     packages=find_packages(),
