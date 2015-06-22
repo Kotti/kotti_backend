@@ -16,9 +16,7 @@ What ``kotti_backend`` does:
 
 4. override the default populator with a custom ACL (no allow view for everyone)
 
-The kotti_backend plugin let you achieve the same goals described here::
-
-* `Kotti CMS intranet`_
+The kotti_backend plugin let you achieve the same goals described here (`Kotti CMS intranet`_).
 
 |build status|_
 
