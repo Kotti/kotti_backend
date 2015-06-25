@@ -24,7 +24,6 @@ def kotti_configure(settings):
 
     settings['pyramid.includes'] += ' kotti_backend'
     settings['kotti.populators'] = 'kotti_backend.populate.populate'
-    settings['kotti.use_workflow'] = 'kotti_backend:workflows/private_workflow.zcml'
 
 
 def includeme(config):

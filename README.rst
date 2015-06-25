@@ -37,6 +37,8 @@ To enable the extension in your Kotti site, activate the configurator::
     kotti.configurators =
         kotti_backend.kotti_configure
 
+    kotti.use_workflow = kotti_backend:workflows/private_workflow.zcml
+
 Development
 ===========
 
