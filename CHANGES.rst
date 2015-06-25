@@ -1,7 +1,7 @@
 History
 =======
 
-0.1.3 (unreleased)
+0.1.3 (2015-06-25)
 ------------------
 
 - Add important note on README
