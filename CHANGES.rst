@@ -1,7 +1,7 @@
 History
 =======
 
-0.1.1 (unreleased)
+0.1.1 (2015-06-25)
 ------------------
 
 - No more automatic override for ``kotti.use_workflow`` ini setting.
