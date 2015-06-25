@@ -4,8 +4,7 @@ History
 0.1.2 (unreleased)
 ------------------
 
-- Register pview public view permission in kotti_backend's SITE_ACL.
-  Needed for third party plugins with decoupled frontend
+- Add support for third party plugins with decoupled frontend (public view permission ``pview``)
 
 
 0.1.1 (2015-06-25)
