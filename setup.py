@@ -13,7 +13,7 @@ try:
 except IOError:
     CHANGES = ''
 
-version = '0.1.1'
+version = '0.1.2.dev0'
 
 install_requires = [
     'Kotti>=1.0.0',
