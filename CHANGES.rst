@@ -4,8 +4,7 @@ History
 0.1.3 (unreleased)
 ------------------
 
-- Nothing changed yet.
-
+- Add important note on README
 
 0.1.2 (2015-06-25)
 ------------------

@@ -39,6 +39,11 @@ To enable the extension in your Kotti site, activate the configurator::
 
     kotti.use_workflow = kotti_backend:workflows/private_workflow.zcml
 
+If you are going to install ``kotti_backend`` on an already existing site you'll need to reset the
+workflow: read the docs and backup first. See `Kotti security`_
+
+.. _Kotti security: http://kotti.readthedocs.org/en/latest/developing/basic/security.html
+
 Development
 ===========
 
