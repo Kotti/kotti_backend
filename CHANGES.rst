@@ -6,6 +6,9 @@ History
 
 - Add more tests
 
+- Add optional pyramid.includes setting ``kotti_backend.views.override_root_view```.
+  Include it if you want to override the root with the ``@@contents`` view
+
 
 0.1.3 (2015-06-25)
 ------------------
