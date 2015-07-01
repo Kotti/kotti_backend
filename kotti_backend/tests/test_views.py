@@ -1,5 +1,4 @@
 from pytest import mark
-from pytest import fixture
 
 
 class TestViews:
