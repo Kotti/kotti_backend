@@ -5,7 +5,7 @@ class TestViews:
 
     @mark.user('admin')
     def test_root_view_admin(self, webtest, root):
-        # default view is folder contents
+        # admin can view
         resp = webtest.get('/')
         assert resp.status_code == 200
 
