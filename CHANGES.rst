@@ -4,7 +4,7 @@ History
 0.1.4 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Add more tests
 
 
 0.1.3 (2015-06-25)
