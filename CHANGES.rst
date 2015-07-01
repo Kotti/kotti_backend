@@ -1,7 +1,7 @@
 History
 =======
 
-0.1.4 (unreleased)
+0.1.4 (2015-07-02)
 ------------------
 
 - Add more tests
