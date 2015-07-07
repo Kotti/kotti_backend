@@ -21,11 +21,15 @@ def goto_frontend_view(request):
     while context.type_info.name in not_publishable_types and parent is not None:
         context = context.parent
     script_name = request.environ.get('SCRIPT_NAME')
-    if script_name is not None:
+    frontend_url = settings.get('kotti_backend.frontend_url', None)
+    app_url = None
+    if frontend_url is not None:
+        # use a custom frontend url
+        app_url = frontend_url
+    elif script_name is not None:
+        # default setup with script name (default: /cms)
         root = get_root()
         app_url = ''.join(request.resource_url(root).rsplit(script_name)).rstrip('/')
-    else:
-        app_url = None
     return HTTPFound(
         request.resource_url(
             context,

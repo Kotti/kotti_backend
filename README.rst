@@ -43,18 +43,25 @@ If you are going to install ``kotti_backend`` on an already existing site you'll
 workflow: read the docs and backup first. See `Kotti security`_
 
 If you are going to use ``kotti_backend`` with `kotti_frontend`_ (public website decoupled from the private
-content administration area), you can add the following additional options::
+content administration area), you can add the following additional options in order to see a "Goto frontend"
+action in your edit links::
 
-    kotti_backend.goto_frontend = 1
+    kotti_backend.goto_frontend = 1                                 # the script_name (by default /cms) will be wiped out
     kotti_backend.not_publishable_types = TYPENAME
+
+or if you want have a custom url for your frontend you can specify a custom frontend url::
+
+    kotti_backend.frontend_url = http://cms.yourproject.com         # or if you have a custom frontend url you can specify it
 
 where:
 
-* ``kotti_backend.goto_frontend`` adds another link menu that let you switch to the public website
+* ``kotti_backend.goto_frontend`` adds a "Goto frontend" action in your edit links pointing to the public website
 
 * ``kotti_backend.not_publishable_types`` alters the default "goto frontend" link pointing to the first
   publishable parent. This is useful if you are using not directly publishable contents like portles or
   action links you don't want expose on the frontend. See `kotti_boxes`_ or  `kotti_actions`_.
+
+* ``kotti_backend.frontend_url`` let you use a custom frontend url
 
 .. _Kotti security: http://kotti.readthedocs.org/en/latest/developing/basic/security.html
 .. _kotti_frontend: https://github.com/Kotti/kotti_frontend
