@@ -1,0 +1,22 @@
+# Italian translations for Kotti.
+# Copyright (C) 2013 ORGANIZATION
+# This file is distributed under the same license as the Kotti project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2013.
+msgid ""
+msgstr ""
+"Project-Id-Version: Kotti 0.9.2dev\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2015-07-07 17:26+0200\n"
+"PO-Revision-Date: 2014-01-19 11:14+0100\n"
+"Last-Translator: Davide Moro <davide.moro@gmail.com>\n"
+"Language-Team: it \n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"Generated-By: Babel 0.9.6\n"
+
+#: kotti_backend/__init__.py:40
+msgid "Goto frontend"
+msgstr "Vai al frontend"

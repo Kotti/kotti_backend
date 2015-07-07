@@ -4,7 +4,7 @@ History
 0.1.5 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Add optional "Goto frontend" edit links on backend
 
 
 0.1.4 (2015-07-02)

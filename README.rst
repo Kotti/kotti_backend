@@ -42,7 +42,24 @@ To enable the extension in your Kotti site, activate the configurator::
 If you are going to install ``kotti_backend`` on an already existing site you'll need to reset the
 workflow: read the docs and backup first. See `Kotti security`_
 
+If you are going to use ``kotti_backend`` with `kotti_frontend`_ (public website decoupled from the private
+content administration area), you can add the following additional options::
+
+    kotti_backend.goto_frontend = 1
+    kotti_backend.not_publishable_types = TYPENAME
+
+where:
+
+* ``kotti_backend.goto_frontend`` adds another link menu that let you switch to the public website
+
+* ``kotti_backend.not_publishable_types`` alters the default "goto frontend" link pointing to the first
+  publishable parent. This is useful if you are using not directly publishable contents like portles or
+  action links you don't want expose on the frontend. See `kotti_boxes`_ or  `kotti_actions`_.
+
 .. _Kotti security: http://kotti.readthedocs.org/en/latest/developing/basic/security.html
+.. _kotti_frontend: https://github.com/Kotti/kotti_frontend
+.. _kotti_boxes: https://github.com/Kotti/kotti_boxes
+.. _kotti_actions: https://github.com/Kotti/kotti_actions
 
 Development
 ===========

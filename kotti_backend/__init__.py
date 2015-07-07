@@ -5,9 +5,18 @@ Created on 2015-06-22
 :author: Davide Moro (davide.moro@gmail.com)
 """
 from zope.interface import implementer
+from pyramid.settings import asbool
+from pyramid.i18n import TranslationStringFactory
 from kotti.interfaces import IDefaultWorkflow
-from kotti.resources import File
-from kotti.resources import Image
+from kotti.resources import (
+    File,
+    Image,
+    Content,
+    )
+from kotti.util import Link
+
+
+_ = TranslationStringFactory('kotti_backend')
 
 
 def kotti_configure(settings):
@@ -24,6 +33,14 @@ def kotti_configure(settings):
 
     settings['pyramid.includes'] += ' kotti_backend'
     settings['kotti.populators'] = 'kotti_backend.populate.populate'
+
+    if asbool(settings.get('kotti_backend.goto_frontend')):
+        frontend_link = Link(
+            name='goto_frontend',
+            title=_('Goto frontend'),
+            target='_blank',
+            )
+        Content.type_info.edit_links.append(frontend_link)
 
 
 def includeme(config):
@@ -45,3 +62,10 @@ def includeme(config):
     # Assign the default workflow for files and images
     implementer(IDefaultWorkflow)(Image)
     implementer(IDefaultWorkflow)(File)
+
+    base_includes = ('kotti_backend.views.goto_frontend',)
+    for include in base_includes:
+        config.include(include)
+
+    # translations
+    config.add_translation_dirs('kotti_backend:locale')
