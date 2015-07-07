@@ -24,7 +24,11 @@ class TestGotoFrontend:
         dummy_request.resource_url = resource_url
         return dummy_request
 
-    def test_goto_frontend(self, root, content, settings):
+    def _create_file(self, config):
+        from kotti.resources import File
+        return File("file contents", u"myf\xfcle.png", u"image/png")
+
+    def test_goto_frontend(self, root, content):
         from kotti_backend.views.goto_frontend import goto_frontend_view
         from pyramid.httpexceptions import HTTPFound
         settings = {}
@@ -39,4 +43,23 @@ class TestGotoFrontend:
             resp = goto_frontend_view(dummy_request)
 
         assert resp.location == 'http://example.com/about/'
+        assert isinstance(resp, HTTPFound)
+
+    def test_goto_frontend_custom(self, config, root, content, filedepot):
+        file_obj = self._create_file(config)
+        root['file'] = file_obj
+        from kotti_backend.views.goto_frontend import goto_frontend_view
+        from pyramid.httpexceptions import HTTPFound
+        settings = {'kotti_backend.not_publishable_types': ('File',)}
+        environ = {'SCRIPT_NAME': '/cms'}
+        dummy_request = self.dummy_request(root['file'], settings, environ)
+
+        assert dummy_request.resource_url(root['file']) == 'http://example.com/cms/file/'
+
+        import mock
+        with mock.patch('kotti_backend.views.goto_frontend.get_root') as get_root:
+            get_root.return_value = root
+            resp = goto_frontend_view(dummy_request)
+
+        assert resp.location == 'http://example.com/'
         assert isinstance(resp, HTTPFound)
