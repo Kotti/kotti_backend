@@ -1,6 +1,10 @@
 recursive-include kotti_backend/tests *
 recursive-include kotti_backend *.zcml
-include *.rst
 recursive-include kotti_backend *.po
 recursive-include kotti_backend *.mo
 recursive-include kotti_backend *.pot
+include *.rst
+include *.sh
+include *.txt
+include .coveragerc
+include development.ini
