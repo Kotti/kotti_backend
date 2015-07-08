@@ -84,16 +84,9 @@ class TestGotoFrontend:
         assert resp.location == 'http://example.com/'
         assert isinstance(resp, HTTPFound)
 
-    @user('admin')
-    def test_goto_frontend_admin_functional(self, config, content, browser):
+    def test_goto_frontend_edit_links(self, root, app, config, content):
         config.include('kotti.views')
         config.include('kotti.views.edit.actions')
         config.include('kotti_backend')
-        resp = browser.open('/about')
-        assert 'goto_frontend' in browser.contents
-
-    def test_goto_frontend_functional(self, config, webtest):
-        config.include('kotti.views')
-        config.include('kotti_backend')
-        resp = webtest.get('/')
-        assert '@@goto_frontend' not in resp.body
+        assert len([item.name for item in root['about'].type_info.edit_links
+                    if hasattr(item, 'name') and item.name == 'goto_frontend']) == 1
