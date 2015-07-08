@@ -1,3 +1,6 @@
+from kotti.testing import user
+
+
 class TestGotoFrontend:
 
     def dummy_request(self, context, settings, environ):
@@ -80,3 +83,17 @@ class TestGotoFrontend:
 
         assert resp.location == 'http://example.com/'
         assert isinstance(resp, HTTPFound)
+
+    @user('admin')
+    def test_goto_frontend_admin_functional(self, config, content, browser):
+        config.include('kotti.views')
+        config.include('kotti.views.edit.actions')
+        config.include('kotti_backend')
+        resp = browser.open('/about')
+        assert 'goto_frontend' in browser.contents
+
+    def test_goto_frontend_functional(self, config, webtest):
+        config.include('kotti.views')
+        config.include('kotti_backend')
+        resp = webtest.get('/')
+        assert '@@goto_frontend' not in resp.body

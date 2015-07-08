@@ -14,5 +14,6 @@ def custom_settings():
     return {
         'kotti.use_workflow': 'kotti_backend:workflows/private_workflow.zcml',
         'kotti.populators': 'kotti_backend.populate.populate',
+        'kotti_backend.goto_frontend': True,
         'kotti.configurators': 'kotti_tinymce.kotti_configure '
                                'kotti_backend.kotti_configure'}
