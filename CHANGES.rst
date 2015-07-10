@@ -4,7 +4,7 @@ History
 0.2.1 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Added code coverage badge.
 
 
 0.2.0 (2015-07-08)
