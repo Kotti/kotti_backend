@@ -17,8 +17,8 @@ What ``kotti_backend`` does:
 
 4. override the default populator with a custom ACL (no allow view for everyone)
 
-
 |build status|_
+|code coverage|_
 
 `Find out more about Kotti`_
 
@@ -28,6 +28,9 @@ Development happens at https://github.com/Kotti/kotti_backend
 .. _build status: http://travis-ci.org/Kotti/kotti_backend
 .. _Find out more about Kotti: http://pypi.python.org/pypi/Kotti
 .. _Kotti CMS intranet: http://davidemoro.blogspot.it/2015/02/kotti-cms-intranet.html
+.. |code coverage| image:: http://codecov.io/github/Kotti/kotti_backend/coverage.svg?branch=master
+.. _code coverage: http://codecov.io/github/Kotti/kotti_backend?branch=master
+
 
 Setup
 =====
