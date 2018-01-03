@@ -4,7 +4,7 @@ History
 0.2.1 (unreleased)
 ------------------
 
-- Added code coverage badge.
+- Fix problem with workflows (changed zcml format)
 
 
 0.2.0 (2015-07-08)
