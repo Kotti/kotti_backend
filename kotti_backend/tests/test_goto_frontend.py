@@ -29,7 +29,7 @@ class TestGotoFrontend:
 
     def _create_file(self, config):
         from kotti.resources import File
-        return File("file contents", u"myf\xfcle.png", u"image/png")
+        return File(b"file contents", u"myf\xfcle.png", u"image/png")
 
     def test_goto_frontend_default(self, root, content):
         from kotti_backend.views.goto_frontend import goto_frontend_view

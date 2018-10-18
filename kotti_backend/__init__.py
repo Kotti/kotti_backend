@@ -10,10 +10,10 @@ from pyramid.i18n import TranslationStringFactory
 from kotti.interfaces import IDefaultWorkflow
 from kotti.resources import (
     File,
-    Image,
     Content,
     )
 from kotti.util import Link
+from kotti_image.resources import Image
 
 
 _ = TranslationStringFactory('kotti_backend')
@@ -32,6 +32,7 @@ def kotti_configure(settings):
     """
 
     settings['pyramid.includes'] += ' kotti_backend'
+    settings['kotti.configurators'] += ' kotti_image.kotti_configure'
     settings['kotti.populators'] = 'kotti_backend.populate.populate'
 
     if asbool(settings.get('kotti_backend.goto_frontend')):

@@ -1,3 +1,4 @@
+from six import iteritems
 from pyramid.i18n import LocalizerRequestMixin
 from pyramid.threadlocal import get_current_registry
 from kotti.populate import (
@@ -28,12 +29,12 @@ def populate():
 
     if DBSession.query(Node.id).count() == 0:
         localized_root_attrs = dict(
-            [(k, localizer.translate(v)) for k, v in _ROOT_ATTRS.iteritems()])
+            [(k, localizer.translate(v)) for k, v in iteritems(_ROOT_ATTRS)])
         root = Document(**localized_root_attrs)
         root.__acl__ = SITE_ACL
         DBSession.add(root)
         localized_about_attrs = dict(
-            [(k, localizer.translate(v)) for k, v in _ABOUT_ATTRS.iteritems()])
+            [(k, localizer.translate(v)) for k, v in iteritems(_ABOUT_ATTRS)])
         root['about'] = Document(**localized_about_attrs)
         DBSession.flush()
 
