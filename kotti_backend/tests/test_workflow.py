@@ -1,8 +1,7 @@
 import pytest
-from kotti.resources import (
-    File,
-    Image,
-    )
+
+from kotti.resources import File
+from kotti_image.resources import Image
 
 
 class TestFileImageWorkflow:
@@ -21,8 +20,7 @@ class TestFileImageWorkflow:
         from kotti.interfaces import IDefaultWorkflow
         config.include('kotti.views')  # custom predicates
         config.include('kotti_backend')
-        instance = factory(data='file content',
-                           name=u'content',
+        instance = factory(name=u'content',
                            title=u'content')
         assert IDefaultWorkflow.providedBy(instance)
 

@@ -1,10 +1,16 @@
 History
 =======
 
-0.2.1 (unreleased)
+0.3.0 (unreleased)
 ------------------
 
 - Fix problem with workflows (changed zcml format)
+
+- Fix Python 3 compatibility and drop Python 2.7 compatibility
+
+- Fix compatibility with new kotti versions (kotti_image)
+
+- Add tox for test setup
 
 
 0.2.0 (2015-07-08)

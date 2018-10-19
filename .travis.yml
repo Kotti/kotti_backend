@@ -1,25 +1,30 @@
 language: python
 sudo: false
 python:
-  - "2.6"
-  - "2.7"
+- '3.6'
+cache:
+  directories:
+  - "$HOME/.cache/pip"
+before_cache:
+- rm -f $HOME/.cache/pip/log/debug.log
 env:
-  - KOTTI_TEST_DB_STRING=postgresql://postgres@localhost:5432/kotti_testing
-  - KOTTI_TEST_DB_STRING=mysql+oursql://root@localhost:3306/kotti_testing
-  - KOTTI_TEST_DB_STRING=sqlite://
+- KOTTI_TEST_DB_STRING=sqlite://
 before_install:
-  - pip install codecov
+- pip install codecov
 install:
-  - travis_retry pip install "pip==1.3.1"  # fix issue with fanstatic==1.0a
-  - travis_retry pip install -e . -r https://raw.github.com/Kotti/Kotti/stable/requirements.txt --use-mirrors
-  - pip uninstall -y Kotti
-  - python setup.py develop
-  - python setup.py dev
-  - travis_retry pip install psycopg2 oursql python-coveralls
-before_script:
-  - psql -c 'create database kotti_testing;' -U postgres
-  - mysql -e 'create database kotti_testing;'
+- pip install -U tox
+- pip install tox-travis
 script:
-  - py.test --tb=native --cov=kotti --cov-report=term-missing
+- tox
 after_success:
-  - codecov
+- codecov
+deploy:
+  provider: pypi
+  user: davidemoro
+  on:
+    tags: true
+    branch: master
+    distributions: sdist bdist_wheel
+    repo: Kotti/kotti_backend
+  password:
+    secure: YJlcKkUVMGwlTGv3qn9fV6im8F9Qw2FJsyg5KvG561jPzkpfvVPXBvbPoU+X3bC49pwWvdlOL7XOQIqGTNTxvY1OoMfhyILJaBNloOrLSyvms4UO8UDLrUEV9lb5JNy5JdTGnnJ+jOWLO89zUy+qgO7nM/xa0HXbsmgka7SrNE4OZpAkJjSExZM2EWuu8je7trdkWUYeaNXEeCROpTKAbOzYXo74gzmWOXNOr4Qk7SC+PndVIGRRR163qtwoRwCzaJ0bQbLRUroCM2mXdMzwYjHYuq4rYQdN4SVdBFZjTfrISPK9p1NT+2NUIpp8QAkrdtjsBsxBIRnkUf8erzLLt/+vsVtfvJnB88vJidoDj9wv8/lItZKjob4R/4DU4+tF6jXJ7uEJ1hUnvLfBK9wBZ4xnlXUo92DXtNWupydtLqA0AvJ93z8XRjbyZetfABK1cAwt+ZM70iMEDeDSq0h8wgEz+TKz//LbuA+MJA3hZK0tDTP2V/lZn1QBNGeVL7zztR5AfU49kJqzLigwgorP6J70fae9MaSj3PsJPUnFnL7EDuimU03YWnNoDam+YwC1kjLcsOMy2RCJfzSkertbVW7C/Y6RhR+w+usrngIpK7HlYPSrO1w1FU38cflOUlBh+n78uQ1rLRPfyP6I7kia6FRCCONrJsNEohTZj6iv+Xg=

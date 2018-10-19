@@ -18,4 +18,4 @@ class TestViews:
     def test_root_view_admin_default(self, webtest):
         # admin can view
         resp = webtest.get('/')
-        assert '/@@contents' not in resp.body
+        assert b'/@@contents' not in resp.body
