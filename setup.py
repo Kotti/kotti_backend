@@ -16,7 +16,7 @@ except IOError:
 version = '0.2.1.dev0'
 
 install_requires = [
-    'Kotti>=1.0.0',
+    'Kotti>=2.0.0b2',
 ]
 
 
