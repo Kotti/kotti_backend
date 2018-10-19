@@ -13,7 +13,12 @@ from kotti.resources import (
     Content,
     )
 from kotti.util import Link
-from kotti_image.resources import Image
+try:
+    from kotti_image.resources import Image
+except ImportError:
+    HAS_IMAGE = False
+else:
+    HAS_IMAGE = True
 
 
 _ = TranslationStringFactory('kotti_backend')
@@ -61,7 +66,8 @@ def includeme(config):
     config.set_default_permission('view')
 
     # Assign the default workflow for files and images
-    implementer(IDefaultWorkflow)(Image)
+    if HAS_IMAGE:
+        implementer(IDefaultWorkflow)(Image)
     implementer(IDefaultWorkflow)(File)
 
     base_includes = ('kotti_backend.views.goto_frontend',)

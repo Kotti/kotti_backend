@@ -12,6 +12,9 @@ History
 
 - Add tox for test setup
 
+- Image support is optional (you can use kotti_backend with
+  no kotti_image installed)
+
 
 0.2.0 (2015-07-08)
 ------------------
